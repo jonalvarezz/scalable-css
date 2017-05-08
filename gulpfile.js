@@ -17,7 +17,7 @@ var pkg = require('./package.json'),
   opn = require('opn'),
   ghpages = require('gh-pages'),
   path = require('path'),
-  isDist = process.argv.indexOf('serve') === -1;
+  isDist = process.env.NODE_ENV === 'production';
 
 gulp.task('js', ['clean:js'], function() {
   return gulp.src('src/scripts/main.js')
@@ -108,4 +108,4 @@ gulp.task('build', ['js', 'html', 'css', 'images']);
 
 gulp.task('serve', ['open', 'watch']);
 
-gulp.task('default', ['build']);
+gulp.task('default', ['serve']);
