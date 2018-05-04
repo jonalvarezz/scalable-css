@@ -3,19 +3,48 @@ html
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
-    title My Talk Title | Jonathan Álvarez González
+    title Scaling CSS | Jonathan Álvarez González
 
     link(rel='stylesheet', type='text/css', href='build/build.css')
 
   body
-
     article
 
-      section(data-bespoke-backdrop='fbg-image start')
-        h1 My Talk Title
-        h3 <a href="https://twitter.com/jonalvarezz" target="_blank">@jonalvarezz</a>
+      section(data-bespoke-backdrop='bg-yellow start')
+        h1(class="text-color-asphalt" style="border-color: #34495e") Scaling CSS
+        h3.text-color-asphalt In Real World Applications
 
-      section(data-bespoke-backdrop="fbg-image final")
+      section(data-bespoke-backdrop='bg-white')
+        img(src="../images/interview-vs-job.png", alt="Interview vs Job", style="max-width: 100%")
+
+      section(data-bespoke-backdrop='bg-red start')
+        h1 Scaling CSS
+        h3 In Real World Applications
+
+      section
+        h2 ಠ_ಠ
+
+      section
+        h2.text-color-red The problemo
+
+      section(data-bespoke-backdrop='bg-image bg-image--bunch-of-css')
+        h2(style="background: rgba(0,0,0,.4)") Global
+        h2(class="text-color-red" style="background: rgba(0,0,0,.4)") Too Specific
+        h2(style="background: rgba(0,0,0,.4)") Constants sharing with JS
+        h2(class="text-color-red" style="background: rgba(0,0,0,.4)") It's not component oriented
+
+      section(data-bespoke-backdrop='bg-red')
+        h2(style="padding: 10px; background: white; color: #34495e") !important
+
+      section(data-bespoke-backdrop='bg-amethyst')
+        h3.text-color-white If you are forcing styles with <span style="background: white; color:#9b59b6">!important</span>, you are probably doing something wrong.
+
+      section(data-bespoke-backdrop='bg-red')
+        h2.text-color-asphalt We
+        h2.text-color-asphalt Have a
+        h2(style="padding: 10px; background: white; color: #34495e") Problemo
+
+      section(data-bespoke-backdrop="final")
         h2 Thank you
         h3 <a href="https://twitter.com/jonalvarezz" target="_blank">Jonathan Álvarez</a>
 

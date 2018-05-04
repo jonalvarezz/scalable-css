@@ -39,7 +39,7 @@ require('prism');
   ];
   var BODY = document.body;
 
-  BODY.addEventListener('keypress', onKeyPress);
+  // BODY.addEventListener('keypress', onKeyPress);
 
   function onKeyPress(event) {
     var key = event.keyCode;
