@@ -132,6 +132,42 @@ html
             .form__submit--disabled { }
 
       section
+        pre
+          code.language-javascript.
+            ui/
+            ├── layout/
+            |   ├── Header.jsx              // component code
+            |   ├── Header.scss            // component styles
+
+      section
+        pre
+          code.language-javascript.
+            // component based, preprocessors enabled
+            ui/
+            ├── layout/
+            |   ├── Header.jsx
+            |   ├── Header.scss
+
+      section
+        pre
+          code.language-css.
+            /* Header.scss */
+            @import 'app/constants.scss';
+
+            .Header__container { padding: $padding; }
+            .Header__title--red { color: tomato; }
+
+      section
+        pre
+          code.language-javascript.
+            // Header.jsx
+            const Header = () => (
+              &lt;div className="Header__container"&gt;
+                &lt;h1 className="Header__title--red"&gt;Hey&lt;/h1&gt;
+              &lt;/div&gt;
+            )
+
+      section
         h2.text-color-green Global and naming was solved
 
       section
