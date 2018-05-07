@@ -1,7 +1,6 @@
-# JavaScript Bucaramanga
-> Presentación para mi taller de JavaScript en Bucaramanga
+# Scaling CSS In Real World Applications
 
-**[View slides](http://jonalvarezz.github.io/bga-js/)**
+**[View slides](http://jonalvarezz.github.io/scalable-css/)**
 
 ## View slides locally
 
