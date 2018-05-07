@@ -134,14 +134,6 @@ html
       section
         pre
           code.language-javascript.
-            ui/
-            ├── layout/
-            |   ├── Header.jsx              // component code
-            |   ├── Header.scss            // component styles
-
-      section
-        pre
-          code.language-javascript.
             // component based, preprocessors enabled
             ui/
             ├── layout/
@@ -171,11 +163,18 @@ html
         h2.text-color-green Global and naming was solved
 
       section
+        h2 :D
+
+      section
         h3 –Solved by the developer–
 
       section
-        h3.text-color-yellow –What if–
-        h3 Devs should not need to think about it?
+        h2 ಠ_ಠ
+
+      section
+        p
+          em.text-color-yellow –What if–
+        p Devs should not need to think about it?
 
       section
         p
@@ -183,18 +182,20 @@ html
         h3 –NationJS @ 2014–
 
       section
-        h3.text-color-red Inline Styles
+        h2.text-color-red Inline Styles
 
       section
         pre
           code.language-javascript.
-            // Header.jsxx
+            // Header.jsx
             import { padding } from 'app/constants/padding.js'
             const Header = () => (
               &lt;div style={{ padding }}&gt;
                 &lt;h1 style={{ color: 'tomato' }}&gt;Hey&lt;/h1&gt;
               &lt;/div&gt;
             )
+
+      section(data-bespoke-backdrop='bg-image bg-image--elmo')
 
       section
         h2 ಠ_ಠ
@@ -251,11 +252,13 @@ html
         h2 ಠ_ಠ
 
       section
-        h3.text-color-red Communication between JS and CSS is hard
+        p Communication between JS and CSS 
+          span.text-color-red is hard
 
       section
-        h3.text-color-yellow –What if–
-        h3 CSS is written from JS
+        p
+          em.text-color-yellow –What if–
+        p CSS is written from JS
 
       section(data-bespoke-backdrop='bg-yellow')
         h2.text-color-asphalt Styled Components
@@ -304,8 +307,9 @@ html
         h2 ಠ_ಠ
 
       section
-        h3.text-color-yellow –Conslusions–
-        h3 Should I migrate my entire CSS codebase to CSS Module/Styled Components?
+        p
+          em.text-color-yellow –Conclusions–
+        p Should I migrate my entire CSS codebase to CSS Module/Styled Components?
 
       section(data-bespoke-backdrop='bg-red')
         h2 NO
@@ -313,7 +317,7 @@ html
 
       section
         h3.text-color-yellow Progressive migrations
-        h3(style="font-size: 95%") –With CSS Modules–
+        em –With CSS Modules–
 
       section
         p CSS Modules are enabled through <span class="text-color-yellow">Webpack's css-loader</span>
@@ -345,7 +349,8 @@ html
             // You'll be still able to share your constants in CSS Modules
 
       section
-        h3.text-color-yellow –Conslusions–
+        p
+          em.text-color-yellow –Conslusions–
         p Will CSS Module/Styled Components solve my problems?
 
       section(data-bespoke-backdrop='bg-red')
@@ -353,8 +358,8 @@ html
         h3(style="font-size: 95%") –Well, sort of, not really–
 
       section
-        h3 CSS problems can be solved with well written vanilla CSS.
-        h3.text-color-yellow JS just make it easier for team work
+        p CSS problems can be solved with well written vanilla CSS as well.
+        h3.text-color-yellow JavaScript just make it easier for team work
 
       section
         p Take <span class="text-color-yellow">Functional CSS</span> as an example
