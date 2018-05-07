@@ -25,6 +25,11 @@ html
         h2 ಠ_ಠ
 
       section
+        h3 CSS is weird</span>. You can learn the basics of it in 15 minutes. <span class="text-color-yellow">But it can take years before you figure out a good way to organize your styles.</span>
+        h3(style="font-size: 95%")
+          a(href="https://medium.freecodecamp.org/a-5-minute-intro-to-styled-components-41f40eb7cd55") Sasha Greif @ FreeCodeCamp
+
+      section
         h2.text-color-red The problemo
 
       section(data-bespoke-backdrop='bg-image bg-image--bunch-of-css')
@@ -43,6 +48,286 @@ html
         h2.text-color-asphalt We
         h2.text-color-asphalt Have a
         h2(style="padding: 10px; background: white; color: #34495e") Problemo
+
+      section
+        h2.text-color-yellow.single-words Scale? CSS?
+
+      section(data-bespoke-backdrop='bg-navy-blue')
+        h3 "capable of remaining effective, coherent, extendable, and maintainable as projects grow over time"
+        a(href="https://github.com/davidtheclark/scalable-css-reading-list") A Scalable CSS Reading List
+
+      section(data-bespoke-backdrop='bg-yellow')
+        h3.text-color-asphalt Code that can be easy and safely removed
+
+      section(data-bespoke-backdrop='bg-white')
+        img(src="../images/preprocessors.png", alt="CSS Preprocessors")
+
+      section
+        h3.text-color-yellow –Everything becomes–
+        h2.text-color-yellow Component Oriented
+
+      section
+        pre
+          code.language-javascript.
+            ui/
+            ├── layout/
+            |   ├── Header.jsx              // component code
+            |   ├── Header.scss            // component styles
+
+      section
+        h2 :D
+
+      section
+        h3 –Still having–
+        h2.text-color-red Globals
+        h3 And...
+
+      section
+        h3 –Specificity hell–
+
+      section
+        pre
+          code.language-css.
+            .sidebar {
+              .footer,
+              .colophon {
+                .left,
+                .right {
+                  .button {
+                    a {
+                      color: tomato
+                    }
+                  }
+                }
+              }
+            }
+
+      section
+        pre
+          code.language-css.
+            .sidebar .footer .left .button a,
+            .sidebar .footer .right .button a,
+            .sidebar .colophon .left .button a,
+            .sidebar .colophon .right .button a {
+              color: tomato
+
+            }
+
+      section
+        h2 ಠ_ಠ
+
+      section
+        h3 -Standards Arrives–
+        h2.text-color-yellow BEM
+        h2 ITCSS, SMACSS
+
+      section
+        pre
+          code.language-css.
+            .form { }
+            .form--theme-xmas { }
+            .form--simple { }
+            .form__input { }
+            .form__submit { }
+            .form__submit--disabled { }
+
+      section
+        h2.text-color-green Global and naming was solved
+
+      section
+        h3 –Solved by the developer–
+
+      section
+        h3.text-color-yellow –What if–
+        h3 Devs should not need to think about it?
+
+      section
+        h3
+          a(href="https://speakerdeck.com/vjeux/react-css-in-js", target="_blank") Christopher Chedeau’s “CSS in JS” talk
+        h3 –NationJS @ 2014–
+
+      section
+        h3.text-color-red Inline Styles
+
+      section
+        pre
+          code.language-javascript.
+            // Header.jsxx
+            import { padding } from 'app/constants/padding.js'
+            const Header = () => (
+              &lt;div style={{ padding }}&gt;
+                &lt;h1 style={{ color: 'tomato' }}&gt;Hey&lt;/h1&gt;
+              &lt;/div&gt;
+            )
+
+      section
+        h2 ಠ_ಠ
+
+      section(data-bespoke-backdrop='bg-navy-blue')
+        h2 CSS Modules
+
+      section
+        pre
+          code.language-javascript.
+            // component based, preprocessors enabled
+            ui/
+            ├── layout/
+            |   ├── Header.jsx
+            |   ├── Header.scss
+
+      section
+        pre
+          code.language-css.
+            /* Header.scss */
+            @import 'app/constants.scss';
+
+            .container { padding: $padding; }
+            .title { color: tomato; }
+
+      section
+        pre
+          code.language-javascript.
+            // Header.jsx
+            import css from './Header.scss'
+
+            const Header = () => (
+              &lt;div className={css.container}&gt;
+                &lt;h1 className={css.title}&gt;Hey&lt;/h1&gt;
+              &lt;/div&gt;
+            )
+
+      section
+        pre
+          code.language-html.
+            &lt;div class='header-container--d309xlk'&gt;
+              &lt;h1 class='header-title--as3o21'&gt;
+                Hey
+              &lt;/h1&gt;
+            &lt;/div&gt;
+
+      section
+        h3 –Local by default–
+
+      section
+        h2 :D
+
+      section
+        h2 ಠ_ಠ
+
+      section
+        h3.text-color-red Communication between JS and CSS is hard
+
+      section
+        h3.text-color-yellow –What if–
+        h3 CSS is written from JS
+
+      section(data-bespoke-backdrop='bg-yellow')
+        h2.text-color-asphalt Styled Components
+
+      section
+        pre
+          code.language-javascript.
+            // Header.jsx
+            import styled from "styled-components";
+            import { padding } from 'app/constants/padding.js'
+
+            const Title = styled.h1`color: tomato`
+            const Container = styled.div`padding: ${padding}`
+
+            const Header = () => (
+              &lt;Container&gt;
+                &lt;Title&gt;Hey&lt;/Title&gt;
+              &lt;/Container&gt;
+            )
+
+      section
+        pre
+          code.language-javascript.
+            // Button.jsx
+            const Button = styled.button`
+              background: ${props => props.primary ? 'red' : 'white'};
+              color: ${props => props.primary ? 'white' : 'red'};
+
+              font-size: 1em;
+              padding: 0.25em 1em;
+              border: 2px solid palevioletred;
+              border-radius: 3px;
+            `;
+
+      section
+        pre
+          code.language-html.
+            &lt;button class='Button-ze9nme-3'&gt;
+              I am a button
+            &lt;/button&gt;
+
+      section
+        h2 :D
+
+      section
+        h2 ಠ_ಠ
+
+      section
+        h3.text-color-yellow –Conslusions–
+        h3 Should I migrate my entire CSS codebase to CSS Module/Styled Components?
+
+      section(data-bespoke-backdrop='bg-red')
+        h2 NO
+        h3(style="font-size: 95%") –Well, not really–
+
+      section
+        h3.text-color-yellow Progressive migrations
+        h3(style="font-size: 95%") –With CSS Modules–
+
+      section
+        p CSS Modules are enabled through <span class="text-color-yellow">Webpack's css-loader</span>
+
+      section
+        pre
+          code.language-javascript.
+            // webpack.config.js
+            {
+              test: /\.css$/,
+              use: [
+                {
+                  loader: 'css-loader',
+                  options: {
+                    modules: true,
+                    localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                  }
+                }
+              ]
+            }
+
+      section
+        pre
+          code.language-javascript.
+            // Header.jsx
+            import 'Footer.scss' // Load as regular CSS
+            import css from 'Footer.module.scss' // Load as local CSS
+
+            // You'll be still able to share your constants in CSS Modules
+
+      section
+        h3.text-color-yellow –Conslusions–
+        p Will CSS Module/Styled Components solve my problems?
+
+      section(data-bespoke-backdrop='bg-red')
+        h2 YES
+        h3(style="font-size: 95%") –Well, sort of, not really–
+
+      section
+        h3 CSS problems can be solved with well written vanilla CSS.
+        h3.text-color-yellow JS just make it easier for team work
+
+      section
+        p Take <span class="text-color-yellow">Functional CSS</span> as an example
+        em
+          a(href="https://tachyons.io/") Tachyon CSS
+
+      section(data-bespoke-backdrop="bg-white")
+        a(href="http://tachyons.io/components/buttons/basic-rounded-extra-small/index.html", target="_blank")
+          img(src="../images/tachyon.png", alt="Tachyon CSS", style="max-width: 100%")
 
       section(data-bespoke-backdrop="final")
         h2 Thank you
