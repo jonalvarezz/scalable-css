@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Scaling CSS | Jonathan Álvarez González</title>
+    <link rel="stylesheet" type="text/css" href="build/build.css">
+  </head>
+  <body>
+    <article>
+      <section data-bespoke-backdrop="bg-yellow start">
+        <h1 style="border-color: #34495e" class="text-color-asphalt">Scaling CSS</h1>
+        <h3 class="text-color-asphalt">In Real World Applications</h3>
+      </section>
+      <section data-bespoke-backdrop="bg-white"><img src="../images/interview-vs-job.png" alt="Interview vs Job" style="max-width: 100%"></section>
+      <section data-bespoke-backdrop="bg-red start">
+        <h1>Scaling CSS</h1>
+        <h3>In Real World Applications</h3>
+      </section>
+      <section>
+        <h2>ಠ_ಠ</h2>
+      </section>
+      <section>
+        <h3>CSS is weird</span>. You can learn the basics of it in 15 minutes. <span class="text-color-yellow">But it can take years before you figure out a good way to organize your styles.</span></h3>
+        <h3 style="font-size: 95%"><a href="https://medium.freecodecamp.org/a-5-minute-intro-to-styled-components-41f40eb7cd55">Sasha Greif @ FreeCodeCamp</a></h3>
+      </section>
+      <section>
+        <h2 class="text-color-red">The problemo</h2>
+      </section>
+      <section data-bespoke-backdrop="bg-image bg-image--bunch-of-css">
+        <h2 style="background: rgba(0,0,0,.4)">Global</h2>
+        <h2 style="background: rgba(0,0,0,.4)" class="text-color-red">Too Specific</h2>
+        <h2 style="background: rgba(0,0,0,.4)">Constants sharing with JS</h2>
+        <h2 style="background: rgba(0,0,0,.4)" class="text-color-red">It's not component oriented</h2>
+      </section>
+      <section data-bespoke-backdrop="bg-red">
+        <h2 style="padding: 10px; background: white; color: #34495e">!important</h2>
+      </section>
+      <section data-bespoke-backdrop="bg-amethyst">
+        <h3 class="text-color-white">If you are forcing styles with <span style="background: white; color:#9b59b6">!important</span>, you are probably doing something wrong.</h3>
+      </section>
+      <section data-bespoke-backdrop="bg-red">
+        <h2 class="text-color-asphalt">We</h2>
+        <h2 class="text-color-asphalt">Have a</h2>
+        <h2 style="padding: 10px; background: white; color: #34495e">Problemo</h2>
+      </section>
+      <section>
+        <h2 class="text-color-yellow single-words">Scale? CSS?</h2>
+      </section>
+      <section data-bespoke-backdrop="bg-navy-blue">
+        <h3>"capable of remaining effective, coherent, extendable, and maintainable as projects grow over time"</h3><a href="https://github.com/davidtheclark/scalable-css-reading-list">A Scalable CSS Reading List</a>
+      </section>
+      <section data-bespoke-backdrop="bg-yellow">
+        <h3 class="text-color-asphalt">Code that can be easy and safely removed</h3>
+      </section>
+      <section data-bespoke-backdrop="bg-white"><img src="../images/preprocessors.png" alt="CSS Preprocessors"></section>
+      <section>
+        <h3 class="text-color-yellow">–Everything becomes–</h3>
+        <h2 class="text-color-yellow">Component Oriented</h2>
+      </section>
+      <section>
+        <pre><code class="language-javascript">ui/
+├── layout/
+|   ├── Header.jsx              // component code
+|   ├── Header.scss            // component styles
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-css">/* Header.scss */
+@import 'app/constants.scss';
+
+.container { padding: $padding; }
+.title-red { color: tomato; }
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-javascript">// Header.jsx
+const Header = () => (
+  &lt;div className="container"&gt;
+    &lt;h1 className="title"&gt;Hey&lt;/h1&gt;
+  &lt;/div&gt;
+)
+</code></pre>
+      </section>
+      <section>
+        <h2>:D</h2>
+      </section>
+      <section>
+        <h3>–Still having–</h3>
+        <h2 class="text-color-red">Globals</h2>
+        <h3>And...</h3>
+      </section>
+      <section>
+        <h3>–Specificity hell–</h3>
+      </section>
+      <section>
+        <pre><code class="language-css">.sidebar {
+  .footer,
+  .colophon {
+    .left,
+    .right {
+      .button {
+        a {
+          color: tomato
+        }
+      }
+    }
+  }
+}
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-css">.sidebar .footer .left .button a,
+.sidebar .footer .right .button a,
+.sidebar .colophon .left .button a,
+.sidebar .colophon .right .button a {
+  color: tomato;
+}
+</code></pre>
+      </section>
+      <section>
+        <h2>ಠ_ಠ</h2>
+      </section>
+      <section>
+        <h3>-Standards Arrives–</h3>
+        <h2 class="text-color-yellow">BEM</h2>
+        <h2>ITCSS, SMACSS</h2>
+      </section>
+      <section>
+        <pre><code class="language-css">.form { }
+.form--theme-xmas { }
+.form--simple { }
+.form__input { }
+.form__submit { }
+.form__submit--disabled { }
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-javascript">// component based, preprocessors enabled
+ui/
+├── layout/
+|   ├── Header.jsx
+|   ├── Header.scss
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-css">/* Header.scss */
+@import 'app/constants.scss';
+
+.Header__container { padding: $padding; }
+.Header__title--red { color: tomato; }
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-javascript">// Header.jsx
+const Header = () => (
+  &lt;div className="Header__container"&gt;
+    &lt;h1 className="Header__title--red"&gt;Hey&lt;/h1&gt;
+  &lt;/div&gt;
+)
+</code></pre>
+      </section>
+      <section>
+        <h2 class="text-color-green">Global and naming was solved</h2>
+      </section>
+      <section>
+        <h2>:D</h2>
+      </section>
+      <section>
+        <h3>–Solved by the developer–</h3>
+      </section>
+      <section>
+        <h2>ಠ_ಠ</h2>
+      </section>
+      <section>
+        <p><em class="text-color-yellow">–What if–</em></p>
+        <p>Devs should not need to think about it?</p>
+      </section>
+      <section>
+        <p><a href="https://speakerdeck.com/vjeux/react-css-in-js" target="_blank">Christopher Chedeau’s “CSS in JS” talk</a></p>
+        <h3>–NationJS @ 2014–</h3>
+      </section>
+      <section>
+        <h2 class="text-color-red">Inline Styles</h2>
+      </section>
+      <section>
+        <pre><code class="language-javascript">// Header.jsx
+import { padding } from 'app/constants/padding.js'
+const Header = () => (
+  &lt;div style={{ padding }}&gt;
+    &lt;h1 style={{ color: 'tomato' }}&gt;Hey&lt;/h1&gt;
+  &lt;/div&gt;
+)
+</code></pre>
+      </section>
+      <section data-bespoke-backdrop="bg-image bg-image--elmo"></section>
+      <section>
+        <h2>ಠ_ಠ</h2>
+      </section>
+      <section data-bespoke-backdrop="bg-navy-blue">
+        <h2>CSS Modules</h2>
+      </section>
+      <section>
+        <pre><code class="language-javascript">// component based, preprocessors enabled
+ui/
+├── layout/
+|   ├── Header.jsx
+|   ├── Header.scss
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-css">/* Header.scss */
+@import 'app/constants.scss';
+
+.container { padding: $padding; }
+.title { color: tomato; }
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-javascript">// Header.jsx
+import css from './Header.scss'
+
+const Header = () => (
+  &lt;div className={css.container}&gt;
+    &lt;h1 className={css.title}&gt;Hey&lt;/h1&gt;
+  &lt;/div&gt;
+)
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-html">&lt;div class='header-container--d309xlk'&gt;
+  &lt;h1 class='header-title--as3o21'&gt;
+    Hey
+  &lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
+      </section>
+      <section>
+        <h3>–Local by default–</h3>
+      </section>
+      <section>
+        <h2>:D</h2>
+      </section>
+      <section>
+        <h2>ಠ_ಠ</h2>
+      </section>
+      <section>
+        <p>Communication between JS and CSS <span class="text-color-red">is hard</span></p>
+      </section>
+      <section>
+        <p><em class="text-color-yellow">–What if–</em></p>
+        <p>CSS is written from JS</p>
+      </section>
+      <section data-bespoke-backdrop="bg-yellow">
+        <h2 class="text-color-asphalt">Styled Components</h2>
+      </section>
+      <section>
+        <pre><code class="language-javascript">// Header.jsx
+import styled from "styled-components";
+import { padding } from 'app/constants/padding.js'
+
+const Title = styled.h1`color: tomato`
+const Container = styled.div`padding: ${padding}`
+
+const Header = () => (
+  &lt;Container&gt;
+    &lt;Title&gt;Hey&lt;/Title&gt;
+  &lt;/Container&gt;
+)
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-javascript">// Button.jsx
+const Button = styled.button`
+  background: ${props => props.primary ? 'red' : 'white'};
+  color: ${props => props.primary ? 'white' : 'red'};
+  
+  font-size: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-html">&lt;button class='Button-ze9nme-3'&gt;
+  I am a button
+&lt;/button&gt;
+</code></pre>
+      </section>
+      <section>
+        <h2>:D</h2>
+      </section>
+      <section>
+        <h2>ಠ_ಠ</h2>
+      </section>
+      <section>
+        <p><em class="text-color-yellow">–Conclusions–</em></p>
+        <p>Not suitable for all projects. Only JS based projects.</p>
+      </section>
+      <section>
+        <p><em class="text-color-yellow">–Conclusions–</em></p>
+        <p>Should I migrate my entire CSS codebase to CSS Module/Styled Components to solve my problems?</p>
+      </section>
+      <section data-bespoke-backdrop="bg-red">
+        <h2>NO</h2>
+        <h3 style="font-size: 95%">–Well, not really–</h3>
+      </section>
+      <section>
+        <p>CSS problems can be solved with well written vanilla CSS as well.</p>
+        <h3 class="text-color-yellow">JavaScript just make it easier for team work</h3>
+      </section>
+      <section>
+        <p>Take <span class="text-color-yellow">Functional CSS</span> as an example</p><em><a href="https://tachyons.io/">Tachyon CSS</a></em>
+      </section>
+      <section data-bespoke-backdrop="bg-white"><a href="http://tachyons.io/components/buttons/basic-rounded-extra-small/index.html" target="_blank"><img src="../images/tachyon.png" alt="Tachyon CSS" style="max-width: 100%"></a></section>
+      <section>
+        <h3 class="text-color-yellow">Progressive migrations</h3><em>–if you're already using Webpack–</em>
+      </section>
+      <section>
+        <p>CSS Modules are enabled through <span class="text-color-yellow">Webpack's css-loader</span></p>
+      </section>
+      <section>
+        <pre><code class="language-javascript">// webpack.config.js
+{
+  test: /\.css$/,
+  use: [
+    {
+      loader: 'css-loader',
+      options: {
+        modules: true,
+        localIdentName: '[path][name]__[local]--[hash:base64:5]'
+      }
+    }
+  ]
+}
+</code></pre>
+      </section>
+      <section>
+        <pre><code class="language-javascript">// Header.jsx
+import 'Footer.scss' // Load as regular CSS
+import css from 'Footer.module.scss' // Load as local CSS
+
+// You'll be still able to share your constants in CSS Modules
+</code></pre>
+      </section>
+      <section>
+        <h3 class="text-color-yellow">Continue reading...</h3>
+        <ul class="text-left p0 m0">
+          <li><a href="https://philipwalton.com/articles/css-architecture/">CSS Architecture by Philp Walton</a></li>
+          <li><a href="https://medium.com/@perezpriego7/css-evolution-from-css-sass-bem-css-modules-to-styled-components-d4c1da3a659b">CSS Evolution by Perezpriego</a></li>
+          <li><a href="http://bradfrost.com/blog/link/whats-wrong-with-css-in-js/">What's wrong with CSS in JS by Brad Frost</a></li>
+          <li><a href="https://glenmaddern.com/articles/css-modules">CSS Modules, Welcome to the future by Glen Maddern</a></li>
+        </ul>
+      </section>
+      <section data-bespoke-backdrop="final">
+        <h2 class="text-color-yellow">Thank you</h2>
+        <h3><a href="https://twitter.com/jonalvarezz" target="_blank">Jonathan Álvarez</a></h3>
+      </section>
+    </article>
+    <script src="build/build.js"></script>
+  </body>
+</html>
